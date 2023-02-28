@@ -7,4 +7,5 @@
 ## Karmada源码分析
 
 * [Karmada多云服务发现MCS及MCI实现原理](karmada-mcs-mci.md)
+* [Karmada聚合APIServer及统一认证鉴权实现原理](karmada-aggregated-apiserver.md)
 
