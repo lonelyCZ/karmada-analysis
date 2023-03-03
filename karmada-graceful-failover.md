@@ -6,7 +6,7 @@ Karmada在v1.3版本引入了新的`Taint-Manager-Controller`和`Graceful-Evicti
 
 ## 基本原理
 
-> 在Karmada V1.4之后，优雅故障迁移被默认开启，`karmada-controller-manager`组件启动参数添加了`--feature-gates=Failover=true,GracefulEviction=true`
+> 在Karmada V1.4之后，优雅故障迁移被默认开启，可以通过设置`karmada-controller-manager`组件的启动参数`--feature-gates=Failover=true,GracefulEviction=true`来控制。
 
 Karmada通过给成员集群打`Taint`的方式，来标识一个集群是否可以接受工作负载。在成员集群故障时（控制面监听不到成员集群状态），会给这个成员集群打上`Taint`。用户也可以手动给成员集群打上`Taint`，来驱逐成员集群上的工作负载。
 
@@ -561,6 +561,8 @@ func ObtainBindingSpecExistingClusters(bindingSpec workv1alpha2.ResourceBindingS
 ```
 
 对于`Cluster-Resource-Binding-Controller`有类似的逻辑，在此不赘述。
+
+> 注意：当前版本Karmada不会清理NotReady集群的`Work`(`Binding-Controller`为`Work`添加了`DeletionTimestamp`，但是会被`Finalizer：karmada.io/execution-controller`所阻塞 )，主要是为了防止集群恢复后，无法同步删除集群中的工作负载，导致状态不一致。
 
 ## 参考
 

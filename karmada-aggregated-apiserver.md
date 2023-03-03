@@ -445,7 +445,7 @@ Karmada控制面首先验证用户能否访问某个成员集群地`clusters/pro
 
 > 代码在`pkg/controllers/unifiedauth/unified_auth_controller.go`
 
-`统一认证Controller`主要用来同步成员集群`karmada-impersonator ServiceAccount`可以扮演的角色，只要在控制面上授予了能够访问该成员集群`clusters/proxy`资源的用户，都会被实时同步（包括删除操纵）。
+`统一认证Controller`主要用来同步成员集群`karmada-impersonator ServiceAccount`可以扮演的角色，只要在控制面上授予了能够访问该成员集群`clusters/proxy`资源的用户，都会被实时同步（包括删除操作）。
 
 主要调协对象是`Cluster`
 
