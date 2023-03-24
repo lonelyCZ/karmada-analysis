@@ -9,4 +9,5 @@
 * [Karmada多云服务发现MCS及MCI实现原理](karmada-mcs-mci.md)
 * [Karmada聚合APIServer及统一认证鉴权实现原理](karmada-aggregated-apiserver.md)
 * [Karmada优雅故障迁移设计与实现原理](karmada-graceful-failover.md)
+* [Karmada调度器Estimator功能及实现原理](karmada-scheduler-estimator.md)
 
